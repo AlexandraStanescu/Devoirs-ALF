@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>Verifier l'expression reguliere et calculer la valeur de B: </p>
+
+<button onclick="myFunction()">Try it</button>
+<p id="demo"></p>
+<script>
+function myFunction() {
+
+var string1="A = 9 ;-)";
+var string2="B = 1 + A ;-)";
+var a=string1.split(";");
+var b=string2.split(";");
+x=eval(a[0]);
+y=eval(b[0]);
+var resultat=a[0]+"<br>"+b[0]+"<br>"+"Le resultat de l'operation B=1+A est: <br>"+ y;
+if (/(((([a-z|A-Z])(\s[=]\s)))(((\d{8}\s;-[)])|(\d{7}\s;-[)])|(\d{6}\s;-[)])|(\d\s;-[)]))|((\d{8}|\d{7}|\d{6}|\d)(\s[+]\s)([a-z|A-Z])(\s;-[)]))|((\d{8}|\d{7}|\d{6}|\d)(\s[-]\s)(\d{8}|\d{7}|\d{6}|\d)(\s;-[)]))|((\d{8}|\d{7}|\d{6}|\d)(\s[*]\s)(\d{8}|\d{7}|\d{6}|\d)(\s;-[)]))))/g.test(string1))
+{
+document.getElementById("demo").innerHTML = resultat;}
+else
+{ document.getElementById("demo").innerHTML = "L'expression n'est pas valable ";}
+}
+</script>
+</body>
+</html>
