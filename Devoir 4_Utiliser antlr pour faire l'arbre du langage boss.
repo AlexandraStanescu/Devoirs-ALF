@@ -1,0 +1,48 @@
+// Etudiante: Alexandra Stanescu, 1241F
+// Utiliser antlr pour faire l'arbre du langage boss.
+
+grammar Boss;
+r : ID EQUAL Expr EOI;
+
+//L'expression mathematique
+Expr : Sum ;
+
+// la fonction pour la somme
+Sum : Sub '+' Sum
+    | Sub
+    ;
+
+//la fonction pour la difference
+Sub : Exp '-' Sub
+    | Exp
+     ;
+  
+//la foction pour ;'exponnentielle
+Exp : Div '^' Exp
+    | Div
+    ;
+  
+//la fontion pour la division
+Div : Mul '/' Div
+    | Mul
+    ;
+  
+//la fonction pour la multiplication
+Mul : Pri '*' Mul
+    | Pri
+    ;
+  
+//la priorisation des operations en fontion de la parenthese
+Pri : INT
+    | '('Sum')'
+    ;
+    
+//des nombres
+INT : [0-9]+ ;
+//le nom de la varaible
+ID : [a-zA-Z]+ ;
+//le separateur de la variable d'expression 
+EQUAL : ' = ' ;
+
+//La fin de Input
+EOI : ' $$' ;
